@@ -4,17 +4,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Auth extends CI_Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->library('form_validation');
-    }
+    // ##### constrac ini sudah tidak di butuhkan karena sudah di autoload di folder config/autoload.php > libraries #####
+    // public function __construct()
+    // {
+    //     parent::__construct();
+    //     $this->load->library('form_validation');
+    // }  
+
 
     public function index()
     {
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email', [
             'valid_email' => "This is not an email"
-        ]);
+        ], true);
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
         if ($this->form_validation->run() == false) {

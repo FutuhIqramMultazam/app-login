@@ -34,7 +34,6 @@
                                                    <div class="form-check">
                                                        <input class="form-check-input" type="checkbox" <?= cek_access($user_role["id"], $m["id"]); ?>
                                                            data-role="<?= $user_role["id"] ?>" data-menu="<?= $m["id"] ?>" />
-                                                       <!-- tinggal nambahin data-role sama data-menu untuk di ajax nantinya -->
                                                    </div>
                                                </td>
                                            </tr>

@@ -96,6 +96,7 @@ class User extends CI_Controller
             $current_password = $this->input->post("current_password");
             $new_password1 = $this->input->post("new_password1");
 
+            // cek passwordnya sama ga kaya di database
             if (!password_verify($current_password, $data["user"]["password"])) {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                 Current password is wrong !
@@ -103,6 +104,7 @@ class User extends CI_Controller
                 redirect('user/changepassword');
             } else {
 
+                // cek dulu password baru nya sama ga sama password lama, kalo sama artinya gagal
                 if ($current_password == $new_password1) {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
                     New password cannot be the same as current password !
